@@ -1,6 +1,5 @@
 attrs==21.4.0
 Automat==20.2.0
-beautifulsoup4==4.11.1
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.12
@@ -28,7 +27,6 @@ requests-file==1.5.1
 Scrapy==2.6.1
 service-identity==21.1.0
 six==1.16.0
-soupsieve==2.3.2
 tldextract==3.2.1
 Twisted==22.4.0
 typing-extensions==4.1.1
