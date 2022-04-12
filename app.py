@@ -25,6 +25,15 @@ class Bot(scrapy.Spider):
 
         taf = response.css("p")[7]
         taf = taf.css("p::text").get()
+
+        meta = response.css("p")[6]
+        meta = meta.css("p::text").get()
+
+        cartas_text = response.css("h4.heading-primary")[4]
+        cartas_text = cartas_text.css("h4.a")
+
+        cartas = response.css("ul.list-primary")[0]
+        cartas = cartas.css("a::text").getall()
         
         # xpath='descendant-or-self::p/text()
         # response.xpath('//title/text()').get()
@@ -32,4 +41,6 @@ class Bot(scrapy.Spider):
     
         print(f"\nNascer do Sol: {sol}")
         print(f"Entardecer: {lua}")
-        print(f"TAF: {taf}\n")        
+        print(f"TAF: {taf}\n")
+        print(f'META: {meta}\n')  
+        print(f'CARTAS: {cartas[1]}\n')      
