@@ -15,6 +15,7 @@ class Bot(scrapy.Spider):
     start_urls = [url]
 
     def parse(self, response):
+        print("########################################")
 
         try:
             sol = response.css("div.col-6")[0]
@@ -27,17 +28,18 @@ class Bot(scrapy.Spider):
             taf = taf.css("p")[3]
             taf = taf.css("p::text").get()
 
-            metar = response.css("p")[6]
+            metar = response.css("div.order-sm-12")
+            metar = metar.css("p")[2]
             metar = metar.css("p::text").get()
 
             cartas = response.css("ul.list-primary")
             cartas = cartas.css("a::text").getall()
 
-            print("########################################")
             print("\nCartas Disponíveis: \n")
-
+            i = 0
             for carta in cartas:
-                print(f'CARTA: {carta}')
+                i += 1
+                print(f'CARTA {i}: {carta}')
 
             print(f"\nNascer do Sol: {sol}")
             print(f"Pôr do Sol de Hoje: {lua}\n")
