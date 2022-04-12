@@ -27,8 +27,8 @@ class Bot(scrapy.Spider):
             taf = taf.css("p")[3]
             taf = taf.css("p::text").get()
 
-            meta = response.css("p")[6]
-            meta = meta.css("p::text").get()
+            metar = response.css("p")[6]
+            metar = metar.css("p::text").get()
 
             cartas = response.css("ul.list-primary")
             cartas = cartas.css("a::text").getall()
@@ -42,8 +42,10 @@ class Bot(scrapy.Spider):
             print(f"\nNascer do Sol: {sol}")
             print(f"Pôr do Sol de Hoje: {lua}\n")
             print(f"TAF: {taf}\n")
-            print(f'META: {meta}\n')
+            print(f'METAR: {metar}\n')
             print("########################################")
+            return
 
         except Exception as e:
             print("\nVocê forneceu um ICAO Incorreto!!\n")
+            return
