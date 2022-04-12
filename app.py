@@ -22,6 +22,14 @@ class Bot(scrapy.Spider):
 
         lua = response.css("div.text-left")[0]
         lua = lua.css("h4.mt-0 sunset::text").get()
+
+        taf = response.css("p")[7]
+        taf = taf.css("p::text").get()
+        
+        # xpath='descendant-or-self::p/text()
+        # response.xpath('//title/text()').get()
+        #taf = response.xpath('//p/text()').get()
     
         print(f"\nNascer do Sol: {sol}")
-        print(f"\nEntardecer: {lua}\n")        
+        print(f"Entardecer: {lua}")
+        print(f"TAF: {taf}\n")        
